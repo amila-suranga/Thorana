@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            background: black;
+            margin: 0;
+        }
+        .grid_container {
+            display: grid;
+            height: 100vh;
+            grid-template-rows: repeat(11, 1fr);
+            grid-template-columns: repeat(10, 1fr);
+            
+            background-color: black;
+        }
+
+        .panel_1 {           
+            height:100%;
+            width: 100%;
+            grid-row: 1 / span 2;
+            grid-column:5 / span 2;
+            background-color: white;
+        }
+
+        .panel_2 {
+            height: 100%;
+            width: 100%;
+            grid-row: 3 / span 2;
+            grid-column: 4 / span 2;
+            background-color: white;
+        }
+        .panel_3 {
+            height:100%;
+            grid-row: 3 / span 2;
+            grid-column: 6 / span 2;
+            background-color: white;
+        }
+
+        .panel_4 {
+            height: 100%;
+            grid-row: 4 / span 4;
+            grid-column: 5 / span 2;
+            background-color: red;
+            position: relative;
+        }
+            .panel_4 > .top_circle {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                background-color: blue;
+                border-radius: 50%;
+                z-index: 1;
+                bottom: 11%;
+                left: calc(50% - 150px);
+            }
+
+        .panel_12 {
+            position: relative;
+            height: 100%;
+            grid-row: 7 / span 3;
+            grid-column: 5 / span 2;
+            background-color: red;
+        }
+
+            .panel_12 > img {
+                bottom: -79px;
+                position: absolute;
+                width: 115%;
+                left: -7%;
+                z-index:2;
+            }
+        .panel_5 {
+            height:100%;
+            grid-row: 5 / span 2;
+            grid-column: 3 / span 2;
+            background-color: white;
+        }
+        .panel_6 {
+            height:100%;
+            grid-row: 5 / span 2;
+            grid-column: 7 / span 2;
+            background-color: white;
+        }
+
+        .panel_7 {
+            height:100%;
+            grid-row: 7 / span 2;
+            grid-column: 2 / span 2;
+            background-color: white;
+        }
+
+        .panel_8 {
+            height:100%;
+            grid-row: 7 / span 2;
+            grid-column: 8 / span 2;
+            background-color: white;
+        }
+
+        .panel_9 {
+            height:100%;
+            grid-row: 9 / span 2;
+            grid-column: 1 / span 2;
+            background-color: white;
+        }
+
+        .panel_10 {
+            height:100%;
+            grid-row: 9 / span 2;
+            grid-column: 9 / span 2;
+            background-color: white;
+        }
+
+        .panel_11 {
+            height:100%;
+            grid-row: 10 / span 2;
+            grid-column: 2 / span 8;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid_container">
+        <div class="panel_1">
+            p1
+        </div>
+        <div class="panel_2">
+            p2
+        </div>
+        <div class="panel_3">
+            p3
+        </div>
+        <div class="panel_4">
+           <div class="top_circle">
+
+           </div>
+        </div>
+        <div class="panel_12">
+            <img src="../Content/images/buddha_PNG25.png" />
+        </div>
+        <div class="panel_5">
+            p5
+        </div>
+        <div class="panel_6">
+            p6
+        </div>
+        <div class="panel_7">
+            p7
+        </div>
+        <div class="panel_8">
+            p8
+        </div>
+        <div class="panel_9">
+            p9
+        </div>
+        <div class="panel_10">
+            p10
+        </div>
+
+        <div class="panel_11">
+            p11
+        </div>
+    </div>
+</body>
+</html>

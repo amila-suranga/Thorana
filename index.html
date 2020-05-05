@@ -1,0 +1,1115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+
+       
+
+        body {
+            background-color: black;
+        }
+
+        .button {
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            background-color: #fff;
+            text-align: center;
+        }
+
+            .button span {
+                position: relative;
+                top: 160px;
+                font-size: 1.8rem;
+            }
+
+        .led {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #1e1e1e;
+        }
+
+        .circles {
+            width: 300px;
+            height: 300px;
+            margin-left: calc(50% - 150px);
+            position: relative;
+            top: 150px;
+        }
+
+        .circle {
+            position: absolute;
+        }
+
+        .circle_0 {
+            position: absolute;
+            left: calc((100% / 2) - 50px);
+            top: calc((100% / 2) - 50px);
+        }
+
+        .circle_1 {
+            position: absolute;
+            left: calc((100% / 2) - 60px);
+            top: calc((100% / 2) - 60px);
+        }
+
+        .circle_2 {
+            position: absolute;
+            left: calc((100% / 2) - 70px);
+            top: calc((100% / 2) - 70px);
+        }
+
+        .circle_3 {
+            position: absolute;
+            left: calc((100% / 2) - 80px);
+            top: calc((100% / 2) - 80px);
+        }
+
+        .circle_4 {
+            position: absolute;
+            left: calc((100% / 2) - 90px);
+            top: calc((100% / 2) - 90px);
+        }
+
+        .circle_5 {
+            position: absolute;
+            left: calc((100% / 2) - 100px);
+            top: calc((100% / 2) - 100px);
+        }
+
+        .circle_6 {
+            position: absolute;
+            left: calc((100% / 2) - 110px);
+            top: calc((100% / 2) - 110px);
+        }
+
+        .circle_7 {
+            position: absolute;
+            left: calc((100% / 2) - 120px);
+            top: calc((100% / 2) - 120px);
+        }
+
+        .circle_8 {
+            position: absolute;
+            left: calc((100% / 2) - 130px);
+            top: calc((100% / 2) - 130px);
+        }
+
+        .circle_9 {
+            position: absolute;
+            left: calc((100% / 2) - 140px);
+            top: calc((100% / 2) - 140px);
+        }
+
+        .circle_10 {
+            position: absolute;
+            left: calc((100% / 2) - 150px);
+            top: calc((100% / 2) - 150px);
+        }
+ 
+
+        .other-circle {
+        }
+    </style>
+
+    <style>
+        .Side-wall {
+            width: 150px;
+            height: 100px;
+            background: #fafafa;
+        }
+
+        .side-left {
+            transform: skew(20deg);
+            background-color: #5f5f5f;
+            left: -25px;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+        }
+
+        .side-left-revers {
+            transform: skew(-20deg);
+            background-color: #5f5f5f;
+            left: -25px;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+        }
+
+        .side-right {
+            transform: skew(-20deg);
+            background-color: #5f5f5f;
+            right: -25px;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+        }
+
+        .side-wall-rotate {
+            border-bottom: 132px solid #686464;
+            border-left: 65px solid transparent;
+            border-right: 65px solid transparent;
+        }
+
+        .half_circle {
+            border-radius: 50%;
+            height: 355px;
+            width: 440px;
+            transform: none;
+            top: -37px;
+            position: absolute;
+            background-color: green;
+        }
+
+        .wall-left-top {
+            position: absolute;
+            top: -25px;
+            left: 13px;
+        }
+
+        .wall-right-top {
+            position: absolute;
+            top: -25px;
+            left: -13px;
+        }
+        
+    </style>
+
+    <style>
+        body {
+            background: black;
+            margin: 0;
+            padding-top:10px;
+        }
+
+        .grid_container {
+            display: grid;
+            /*height: 100vh;*/
+            grid-template-rows: repeat(11, 1fr);
+            grid-template-columns: repeat(10, 1fr);
+            background-color: black;
+            width: 1500px;
+            height: 680px;
+        }
+
+        .panel_1 {
+            height: 100%;
+            width: 100%;
+            grid-row: 1 / span 2;
+            grid-column: 5 / span 2;
+            
+            position:relative;
+        }
+
+        .panel_2 {
+            height: 100%;
+            width: 100%;
+            grid-row: 3 / span 2;
+            grid-column: 4 / span 2;            
+            position: relative;
+        }
+
+        .panel_3 {
+            height: 100%;
+            grid-row: 3 / span 2;
+            grid-column: 6 / span 2;            
+            position: relative;
+        }
+
+        .panel_4 {
+            height: 100%;
+            grid-row: 4 / span 4;
+            grid-column: 5 / span 2;
+            position: relative;
+        }
+
+            .panel_4 > .top_circle {
+                position: absolute;
+                width: 340px;
+                height: 340px;
+                background-color: black;
+                border-radius: 50%;
+                z-index: 1;
+                bottom: 0;
+                left: calc(50% - 170px);
+                box-shadow: 1px 1px 7px 0px black;
+            }
+
+        .panel_12 {
+            position: relative;
+            height: 100%;
+            grid-row: 7 / span 3;
+            grid-column: 5 / span 2; 
+        }
+
+            .panel_12 > img {
+                bottom: -43px;
+                position: absolute;
+                width: 115%;
+                left: -5%;
+                z-index: 10;
+            }
+
+        .panel_5 {
+            height: 100%;
+            grid-row: 5 / span 2;
+            grid-column: 3 / span 2;
+             
+            position: relative;
+        }
+
+        .panel_6 {
+            height: 100%;
+            grid-row: 5 / span 2;
+            grid-column: 7 / span 2;             
+            position: relative;
+        }
+
+        .panel_7 {
+            height: 100%;
+            grid-row: 7 / span 2;
+            grid-column: 2 / span 2;
+             
+                 position: relative;
+        }
+
+        .panel_8 {
+            height: 100%;
+            grid-row: 7 / span 2;
+            grid-column: 8 / span 2;
+             
+            position: relative;
+        }
+
+        .panel_9 {
+            height: 100%;
+            grid-row: 9 / span 2;
+            grid-column: 1 / span 5;
+            position: relative;
+        }
+
+        .panel_10 {
+            height: 100%;
+            grid-row: 9 / span 2;
+            grid-column: 6 / span 5;
+            position: relative;
+        }
+
+        .panel_11 {
+            height: 100%;
+            grid-row: 10 / span 2;
+            grid-column: 3 / span 6;
+            z-index:5;
+            position: relative;
+        }
+    </style>
+
+    <style>
+        .light-strip-top {
+            height: 25px;
+            width: 100%;
+            background-color: #062741;
+            box-shadow: 0px 2px 8px 0px;
+        }
+
+        .light-strip-left {
+            height: calc(100% - 25px);
+            width: 25px;
+            background-color: #062741;
+            box-shadow: 0px 1px 10px 0px;
+        }
+
+
+        .light-strip-bottom {
+            height: 25px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            background-color: #062741;
+            box-shadow: 0px -1px 10px 0px;
+        }
+
+        .light-strip-right {
+            height: 62%;
+            width: 25px;
+            position: absolute;
+            right: 0;
+            top: 25px;
+            background-color: #062741;
+        }
+
+        .light-strip-top-led {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #323435;
+            position: absolute;
+        }
+
+        .strip_row {
+            width: 100%;
+            height: 6px;
+        }
+
+        .strip_row_r {
+            width: 100%;
+            height: 6px;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right{
+            right:0;
+        }
+
+        .strip_row_1_l_bottom {
+            left: -32%;
+            width: 131%;
+        }
+
+        .strip_row_1_r_bottom {
+             
+            width: 131%;
+        }
+
+        .left-wall-l-4{
+            left: 38%;
+        }
+
+        .left-wall-r-4 {
+            left: -39%;
+        }
+
+        .row-4-r-strip{
+        height: 81%;
+        top: 0;
+        }
+
+        .row-5-l-wall {
+            top: -51px;
+            height: 130%;
+            width: 81%;
+            left: 10%;
+        }
+
+        .row-5-r-wall {
+            top: -51px;
+            height: 130%;
+            width: 81%;
+            left: 10%;
+        }
+
+        .row-5-r-right-strip{
+            height: 71%;
+        }
+
+        .title-cont {
+            width: 100%;
+            height: 99%;
+            background-color: #076f65;
+            text-align: center;
+            color: white;
+            padding-top: 30px;
+            border: 2px solid;
+        }
+
+        .wallpaper {
+            width: 100%;
+            object-fit: cover;
+            object-position: left;
+            height: 100vh;
+            position: absolute;
+        }
+
+        .wall-oberlay {
+            width: 100%;
+            height: 100%;
+            background-color: #00000080;
+            position: absolute;
+        }
+
+        .last-row-l-wall {
+            width: 83%;
+            left: -10px;
+        }
+
+        .last-row-r-wal{
+        right: -10px;
+        width: 90%;
+
+        }
+
+        .light-strip-tops {
+            width: 137%;
+        }
+
+        .light-strip--sright {
+            top: 0px;
+            height: 100%;
+        }
+		
+		.on {
+            background-color: red;
+        }
+		
+		.white{
+		  background-color: white;
+		}
+  
+        .blue {
+            background-color: blue;
+        }
+		
+		.lotus-r{
+		
+    position: absolute;
+    bottom: -160px;
+    z-index: 1;
+    left: 0px;
+    transform: rotate(16deg);
+    height: 408px;
+}
+
+.lotus-l{
+		
+  position: absolute;
+    bottom: -148px;
+    z-index: 1;
+    right: -30px;
+    transform: rotate(-25deg);
+    height: 408px;
+}
+    </style>
+</head>
+<body>
+    <img src="Content/images/wall.jpg" class="wallpaper" />
+    <div class="wall-oberlay"></div>
+    <div class="grid_container">
+        <div class="panel_1">
+            <div class="Side-wall side-right last-row-r-wal">
+                
+                <div class="light-strip-left"></div>
+                
+                <div class="light-strip-right light-strip--sright"></div>
+            </div>
+            <div class="Side-wall side-left last-row-l-wall">
+                <div class="light-strip-top strip_l light-strip-tops"></div>
+                <div class="light-strip-left"></div>
+               
+            </div>
+
+        </div>
+        <div class="panel_2">
+            <div class="Side-wall side-left">
+                <div class="light-strip-top strip_l"></div>
+                <div class="light-strip-left"></div>
+                
+                <div class="light-strip-right"></div>
+            </div>
+        </div>
+        <div class="panel_3">
+            <div class="Side-wall side-right">
+                <div class="light-strip-top strip_r"></div>
+                <div class="light-strip-left"></div>
+                <!--<div class="light-strip-bottom strip_r"></div>-->
+                <div class="light-strip-right"></div>
+            </div>
+        </div>
+        <div class="panel_4">
+            <div class="top_circle">
+                
+                    <div class="circle circle_10">
+                        <div class="circle circle_9">
+                            <div class="circle circle_8">
+                                <div class="circle circle_7">
+                                    <div class="circle circle_6">
+                                        <div class="circle circle_5">
+                                            <div class="circle circle_4">
+                                                <div class="circle circle_3">
+                                                    <div class="circle circle_2">
+                                                        <div class=" circle circle_1">
+                                                            <div class="circle circle_0"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+        <div class="panel_12">
+            <img src="Content/images/bb.png" />
+        </div>
+        <div class="panel_5">
+            <div class="Side-wall side-left wall-left-top">
+                <div class="light-strip-top strip_l"></div>
+                <div class="light-strip-left"></div>
+                <div class="light-strip-bottom strip_l strip_row_1_l_bottom"></div>
+                <div class="light-strip-right"></div>
+            </div>
+        </div>
+        <div class="panel_6">
+            <div class="Side-wall side-right wall-right-top">
+                <div class="light-strip-top strip_r"></div>
+                <div class="light-strip-left"></div>
+                <div class="light-strip-bottom strip_r strip_row_1_r_bottom"></div>
+                <div class="light-strip-right"></div>
+            </div>
+        </div>
+        <div class="panel_7">
+            <div class="Side-wall side-left wall-left-top left-wall-l-4">
+                <!--<div class="light-strip-top strip_l"></div>-->
+                <div class="light-strip-left"></div>
+                <!--<div class="light-strip-bottom strip_l"></div>-->
+                <div class="light-strip-right row-4-r-strip"></div>
+            </div>
+        </div>
+        <div class="panel_8">
+            <div class="Side-wall side-right wall-right-top left-wall-r-4">
+            <!--<div class="light-strip-top strip_r"></div>-->
+            <div class="light-strip-left"></div>
+            <!--<div class="light-strip-bottom strip_r"></div>-->
+            <div class="light-strip-right row-4-r-strip"></div>
+           </div>
+        </div>
+        <div class="panel_9">
+		<img src="Content/images/lotus.png" class="lotus-l"/>
+            <div class="Side-wall side-left-revers wall-left-top row-5-l-wall">
+                <div class="light-strip-top strip_l"></div>
+                <div class="light-strip-left"></div>
+                <div class="light-strip-bottom strip_l  "></div>
+                <div class="light-strip-right"></div>
+            </div>
+        </div>
+        <div class="panel_10">
+		
+		    <img src="Content/images/lotus.png" class="lotus-r"/>
+            <div class="Side-wall side-left row-5-l-wall wall-left-top">
+                <div class="light-strip-top strip_r"></div>
+                <div class="light-strip-left"></div>
+                <div class="light-strip-bottom strip_r "></div>
+                <div class="light-strip-right row-5-r-right-strip"></div>
+            </div>
+        </div>
+
+        <div class="panel_11">
+            <div class="title-cont">
+                <h2>dTsf SDF sdf</h2>
+                <h4>dTsf SDF sdf</h4>
+            </div>
+        </div>
+    </div>
+  
+
+   
+
+
+
+    <script src="Scripts/jquery-3.5.0.min.js"></script>
+    <script src="Scripts/dotborder.js"></script>
+    <script>
+        // See dotborder.js for more options
+
+
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 300,
+            buttonClass: 'circle_10',
+            dotClass: 'led off row_10'
+        });
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 280,
+            buttonClass: 'circle_9',
+            dotClass: 'led off row_9'
+        });
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 260,
+            buttonClass: 'circle_8',
+            dotClass: 'led off row_8'
+        });
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 240,
+            buttonClass: 'circle_7',
+            dotClass: 'led off row_7'
+        });
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 220,
+            buttonClass: 'circle_6',
+            dotClass: 'led off row_6'
+        });
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 200,
+            buttonClass: 'circle_5',
+            dotClass: 'led off row_5'
+        });
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 180,
+            buttonClass: 'circle_4',
+            dotClass: 'led off row_4'
+        });
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 160,
+            buttonClass: 'circle_3',
+            dotClass: 'led off row_3'
+        });
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 140,
+            buttonClass: 'circle_2',
+            dotClass: 'led off row_2'
+        });
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 120,
+            buttonClass: 'circle_1',
+            dotClass: 'led off row_1'
+        });
+
+
+        dotborder({
+            rate: 6,
+            offset: 0,
+            dotSize: 4,
+            buttonSize: 100,
+            buttonClass: 'circle_0',
+            dotClass: 'led off row_0'
+        });
+
+
+
+    </script>
+
+    <script>
+
+        var design1 = [
+            [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0],
+            [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ];
+		
+		 var design4 = [
+            ['w', 0, 0, 'w', 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0,'W'],
+            [0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w',0],
+            [0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0,'w'],
+            ['w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0,0],
+            [0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w',0],
+            [0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0,'w'],
+            ['w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0,0],
+            [0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w',0],
+            [0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0,'w'],
+            ['w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0,0],
+            [0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w', 0, 0, 'w',0]
+        ];
+		
+		 var design6 = [
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b'],
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b'],
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b'],
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b'],
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b'],
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b'],
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b'],
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b'],
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b'],
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b'],
+            [1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b', 'b', 1, 1, 1, 1, 1, 'w', 'w', 'w', 'w', 'w', 'b', 'b', 'b', 'b','b']
+        ];
+		
+		 var design7 = [
+            ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+			['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+           ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+		   ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+            ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+            ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+           ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+		   ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+			['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+            ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+        ];
+
+       
+        var rot = 1;
+        setInterval(function () {
+		    if(rot>1200){
+			DesignblueRun7();
+			}else if(rot>900){
+		      DesignblueRun6(); 
+		    }else if(rot>750){
+		      DesignblueRun4(); 
+		    }else if(rot>600){
+			  Design4_revurse(); 			 
+			}else if(rot>450){
+			  DesignRun4();
+			  stripdesign2();
+			}else if (rot > 300) {                 
+                moveUp(); 
+            } else if (rot > 150) {                
+                moveLeft(); 
+            } else {			   
+               moveRight(); 
+            }
+			
+			if(rot > 950){
+			  stripdesign3();
+			}else if(rot > 550){
+			   stripdesign2();
+			}else{
+			   stripdesign1() 
+			}
+			
+			 rot++;
+			if (rot == 1500) {
+                    rot = 0;
+            }
+        }, 90);
+
+        function moveLeft() {
+            for (var s = 0; s < 11; s++) {
+                var zero = design1[s][0];
+
+                design1[s].shift();
+                design1[s].push(zero);
+            }
+
+
+            for (var i = 0; i < 11; i++) {
+                for (var j = 0; j < 61; j++) {
+                    if (design1[i][j] == 1) {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('white').addClass('blue');
+                    } else if (design1[i][j] == 1) {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('blue').removeClass('white').addClass('on');
+                    } else {
+                        $('.col_' + j + '.row_' + i).removeClass('on').removeClass('blue').removeClass('white').addClass('off');
+                    }
+                }
+            }
+        }
+
+        function moveRight() {
+            for (var s = 0; s < 11; s++) {
+                var zero = design1[s][61];
+                design1[s].unshift(design1[s].pop());
+            }
+
+
+            for (var i = 0; i < 11; i++) {
+                for (var j = 0; j < 61; j++) {
+                    if (design1[i][j] == 1) {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('white').addClass('blue');
+                    } else if (design1[i][j] == 1) {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('blue').removeClass('white').addClass('on');
+                    } else {
+                        $('.col_' + j + '.row_' + i).removeClass('on').removeClass('blue').removeClass('white').addClass('off');
+                    }
+                }
+            }
+        }
+
+        function moveUp() {
+
+            //  var zero = design1[s][61];
+            design1.unshift(design1.pop());
+
+
+            for (var i = 0; i < 11; i++) {
+                for (var j = 0; j < 61; j++) {
+                    if (design1[i][j] == 'b') {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('white').addClass('blue');
+                    } else if (design1[i][j] == 1) {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('blue').removeClass('white').addClass('on');
+                    } else {
+                        $('.col_' + j + '.row_' + i).removeClass('on').removeClass('blue').removeClass('white').addClass('off');
+                    }
+                }
+            }
+        }
+
+		function DesignRun4(){
+		 for (var s = 0; s < 11; s++) {
+                var zero = design4[s][0];
+
+                design4[s].shift();
+                design4[s].push(zero);
+            }
+
+
+            for (var i = 0; i < 11; i++) {
+                for (var j = 0; j < 61; j++) {
+                    if (design4[i][j] == 'w') {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('blue').addClass('white');
+                    } else if (design4[i][j] == 'b') {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('white').addClass('blue');
+                    } else if (design4[i][j] == 1){ 
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('blue').removeClass('white').addClass('on');
+                    } else {
+                        $('.col_' + j + '.row_' + i).removeClass('on').removeClass('blue').removeClass('white').addClass('off');
+                    }
+                }
+            }
+		}
+		
+		function Design4_revurse(){
+		 for (var s = 0; s < 11; s++) {
+                var zero = design4[s][61];
+                design4[s].unshift(design4[s].pop());
+            }
+
+
+            for (var i = 0; i < 11; i++) {
+                for (var j = 0; j < 61; j++) {
+                    if (design4[i][j] == 'w') {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('blue').addClass('white');
+                    } else if (design4[i][j] == 'b') {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('white').addClass('blue');
+                    } else if (design4[i][j] == 1){ 
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('blue').removeClass('white').addClass('on');
+                    } else {
+                        $('.col_' + j + '.row_' + i).removeClass('on').removeClass('blue').removeClass('white').addClass('off');
+                    }
+                }
+            }
+		}
+    
+	    function DesignblueRun4(){
+		 for (var s = 0; s < 11; s++) {
+                var zero = design4[s][0];
+
+                design4[s].shift();
+                design4[s].push(zero);
+            }
+
+
+            for (var i = 0; i < 11; i++) {
+                for (var j = 0; j < 61; j++) {
+                    if (design4[i][j] == 'w') {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('white').addClass('blue');
+                    } else if (design4[i][j] == 1){ 
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('blue').removeClass('white').addClass('on');
+                    } else {
+                        $('.col_' + j + '.row_' + i).removeClass('on').removeClass('blue').removeClass('white').addClass('off');
+                    }
+                }
+            }
+		}
+			  
+		function DesignblueRun6(){
+				 for (var s = 0; s < 11; s++) {
+						var zero = design6[s][0];
+
+						design6[s].shift();
+						design6[s].push(zero);
+					}
+
+
+					for (var i = 0; i < 11; i++) {
+						for (var j = 0; j < 61; j++) {
+							if (design6[i][j] == 'b') {
+								$('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('white').addClass('blue');
+							}else if (design6[i][j] == 'w') {
+								$('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('blue').addClass('white');
+							} else if (design6[i][j] == 1){ 
+								$('.col_' + j + '.row_' + i).removeClass('off').removeClass('blue').removeClass('white').addClass('on');
+							}  else {
+								$('.col_' + j + '.row_' + i).removeClass('on').removeClass('blue').removeClass('white').addClass('off');
+							}
+						}
+					}
+				}
+
+function DesignblueRun7(){
+				 design7.unshift(design7.pop());
+
+
+            for (var i = 0; i < 11; i++) {
+                for (var j = 0; j < 61; j++) {
+                    if (design7[i][j] == 'w') {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('blue').addClass('white');
+                    } else if (design7[i][j] == 'b') {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('on').removeClass('white').addClass('blue');
+                    } else if (design7[i][j] == 1) {
+                        $('.col_' + j + '.row_' + i).removeClass('off').removeClass('blue').removeClass('white').addClass('on');
+                    } else {
+                        $('.col_' + j + '.row_' + i).removeClass('on').removeClass('blue').removeClass('white').addClass('off');
+                    }
+                }
+            }
+}
+  </script>
+
+    <script>
+	 var design2 = [
+            [1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1],
+            [0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0],
+            [0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+        ];
+		
+		var design3 = [
+            ['b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+            ['b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+            ['b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+            ['b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'b', 'w', 'w', 'w', 'w', 'w', 'w', 'w'], 
+        ];
+		
+		 var design5 = [
+            ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+            [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0],
+            [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0],
+            ['w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'],
+        ];
+
+
+	
+        $(document).ready(function () {
+            
+            for (var i = 0; i <4; i++) {
+                $('.strip_l').append("<div class='strip_row stgrip_l_strow_"+i+"'></div>");
+                var l = 0;
+                for (var j = 0; j <40; j++) {
+                    $('.stgrip_l_strow_'+i).append("<div class='light-strip-top-led blue stcol_" + j +" strow_"+i+"' style='left:" + l +"px;'></div>");
+                    l += 9;
+                }
+            }
+
+            for (var i = 0; i < 4; i++) {
+                $('.strip_r').append("<div class='strip_row_r stgrip_r_strow_" + i + "'></div>");
+                var l = 0;
+                for (var j = 0; j < 40; j++) {
+                    $('.stgrip_r_strow_'+i).append("<div class='light-strip-top-led blue stcol_" + j + " strow_" + i + "' style='right:" + l + "px;'></div>");
+                    l += 9;
+                }
+            }
+        });
+
+        function stripdesign1() {
+            for (var s = 0; s < 4; s++) {
+                var zero = design2[s][0];
+
+                design2[s].shift();
+                design2[s].push(zero);
+            }
+
+
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j < 59; j++) {
+				    if (design2[i][j] == 'w') {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('off').removeClass('blue').removeClass('on').addClass('white');
+                    }else if (design2[i][j] == 'b') {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('off').removeClass('white').removeClass('on').addClass('blue');
+                    } else if (design2[i][j] == 1) {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('off').removeClass('white').removeClass('blue').addClass('on');
+                    } else {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('on').removeClass('white').removeClass('blue').addClass('off');
+                    }
+                }
+            }
+        }
+		
+		 function stripdesign2() {
+            for (var s = 0; s < 4; s++) {
+                var zero = design3[s][0];
+
+                design3[s].shift();
+                design3[s].push(zero);
+            }
+
+
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j < 59; j++) {
+				    if (design3[i][j] == 'w') {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('off').removeClass('blue').removeClass('on').addClass('white');
+                    }else if (design3[i][j] == 'b') {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('off').removeClass('white').removeClass('on').addClass('blue');
+                    } else if (design3[i][j] == 1) {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('off').removeClass('white').removeClass('blue').addClass('on');
+                    } else {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('on').removeClass('white').removeClass('blue').addClass('off');
+                    }
+                }
+            }
+        }
+
+      function stripdesign3() {
+            for (var s = 0; s < 4; s++) {
+                var zero = design5[s][0];
+
+                design5[s].shift();
+                design5[s].push(zero);
+            }
+
+
+            for (var i = 0; i < 4; i++) {
+                for (var j = 0; j < 59; j++) {
+				    if (design5[i][j] == 'w') {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('off').removeClass('blue').removeClass('on').addClass('white');
+                    }else if (design5[i][j] == 'b') {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('off').removeClass('white').removeClass('on').addClass('blue');
+                    } else if (design5[i][j] == 1) {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('off').removeClass('white').removeClass('blue').addClass('on');
+                    } else {
+                        $('.stcol_' + j + '.strow_' + i).removeClass('on').removeClass('white').removeClass('blue').addClass('off');
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
